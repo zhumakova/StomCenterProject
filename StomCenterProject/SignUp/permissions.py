@@ -38,3 +38,11 @@ class ClientPermission(permissions.BasePermission):
             return True
         elif group=='manager' and request.method in ['GET','PUT','DELETE']:
             return True
+
+class DoctorPermission(permissions.BasePermission):
+
+    def has_object_permission(self, request, view, obj):
+        if request.method in SAFE_METHODS:
+            return True
+        if request.method in ['PUT','DELETE'] and request.user.username==obj.username:
+            return True
