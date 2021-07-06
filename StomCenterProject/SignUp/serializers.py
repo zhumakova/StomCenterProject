@@ -39,3 +39,12 @@ class OrderDisplaySerializer(serializers.ModelSerializer):
     class Meta:
         model=Order
         fields=['id','date_created','client','day','doctor']
+class UserListSerializer(serializers.ModelSerializer):
+    class Meta:
+        model=User
+        fields=['id','username','groups']
+        
+class UserDetailSerializer(serializers.ModelSerializer):
+    class Meta:
+        model=User
+        fields='__all__'
