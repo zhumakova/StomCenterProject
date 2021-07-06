@@ -31,7 +31,15 @@ urlpatterns = [
         'put':'update',
         'delete':'destroy'
     }
-    ))
+    )),
+    path('doctors/',DoctorViewSet.as_view({
+        'get':'list'
+    })),
+    path('doctors/<str:d_username>/',DoctorViewSet.as_view({
+        'get':'retrieve',
+        'put':'update',
+        'delete':'destroy',
+    }))
 
 
 ]
