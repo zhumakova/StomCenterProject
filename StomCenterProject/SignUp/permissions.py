@@ -46,3 +46,4 @@ class DoctorPermission(permissions.BasePermission):
             return True
         if request.method in ['PUT','DELETE'] and request.user.username==obj.username:
             return True
+
